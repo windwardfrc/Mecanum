@@ -21,8 +21,11 @@ public class Robot extends IterativeRobot {
     SendableChooser chooser;
     CANTalon[] CANTalonList = {new CANTalon(0),new CANTalon(1),new CANTalon(2),new CANTalon(3)};
     Joystick j = new Joystick(0);
+    
     RobotDrive drive = new RobotDrive(CANTalonList[2], CANTalonList[1], CANTalonList[0], CANTalonList[3]);
-
+    /*FOR MECANUM
+    RobotDrive drive = new RobotDrive(CANTalonList[0], CANTalonList[2], CANTalonList[1], CANTalonList[3]);
+    */
     /**
      * This function is run when the robot is first started up and should be
      * used for any initialization code.
@@ -32,13 +35,13 @@ public class Robot extends IterativeRobot {
         chooser.addDefault("Default Auto", defaultAuto);
         chooser.addObject("My Auto", customAuto);
         SmartDashboard.putData("Auto choices", chooser);
-        /* for mecanum
-        drive.setInvertedMotor(MotorType.kFrontRight, true);
-        drive.setInvertedMotor(MotorType.kRearLeft, true);
-        */
+        
         drive.setInvertedMotor(MotorType.kFrontLeft, true);
         drive.setInvertedMotor(MotorType.kRearRight, true);
         drive.setInvertedMotor(MotorType.kRearLeft, true);
+        /*FOR MECHANUM
+        drive.setInvertedMotor(MotorType.kRearRight, true);
+        */
 
 
     }
